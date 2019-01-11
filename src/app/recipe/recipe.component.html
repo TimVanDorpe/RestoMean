@@ -1,0 +1,12 @@
+<p>
+ recipe for {{recipe.name}}
+<br> added on {{dateAdded | date: 'dd/MM/yyyy'}}
+</p>
+Ingredients : 
+<ul>
+  <li *ngFor="let ingredient of recipe._ingredients">
+    <!--Zo kan een element uit de for loop getoond worden, wij willen het element in een component steken !! {{ingredient}}-->
+    <!--Hier wordt de data van ingredient meegegeven aan het component ingredient dankzij de @Input method :) -->
+    <app-ingredient [name]="ingredient"> </app-ingredient>
+  </li>
+</ul>

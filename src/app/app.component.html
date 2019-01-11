@@ -1,0 +1,26 @@
+<div class="ui container">
+  <div class="ui basic segment">
+    <app-addrecipe (newRecipe)="newRecipeAdded($event)" ></app-addrecipe>
+  </div>
+  <div class="ui segment">
+    <div>
+  <input (keyup)='filterRecipe$.next($event.target.value)' 
+    type='text' id='filter' name='filter' 
+    placeholder='filter recipe name...'>
+  </div>  
+   
+    <div class="ui cards">
+      <!-- de waarde van de filter moet doorgegeven worden van de typescript terug naar hier-->
+      <app-recipe *ngFor='let localRecipe of recipes | recipeFilter : filterRecipeName' 
+        [recipe]='localRecipe'></app-recipe>
+    </div>
+  </div>
+</div>
+<!--
+   <div>
+      <input class="ui input" type='text' placeholder='filter recipe...' #filter>
+      <button class ="ui button" (click)="applyFilter(filter.value)">filter</button>
+      <br>
+      <br>
+    </div>
+  -->
